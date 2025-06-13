@@ -5,10 +5,10 @@ public class CannonComponent : MonoBehaviour
     //random 발사각, 발사 속도
     [SerializeField] Transform spawnPoint;
 
-    public void Shoot(Rigidbody shootObject)
+    public void Shoot(ProjectileObject shootObject, Material mat, ShootManager manager)
     {
         shootObject.transform.position = spawnPoint.position;
-        shootObject.AddForce(GetDirection() * GetMagnitude());
+        shootObject.SetProjectile(GetDirection() * GetMagnitude(), mat, manager);
     }
     Vector3 GetDirection()
     {
